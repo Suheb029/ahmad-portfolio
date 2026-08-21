@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Navbar } from './components/sections/Navbar'
 import { Hero } from './components/sections/Hero'
 import { Services } from './components/sections/Services'
@@ -25,6 +26,7 @@ function App() {
       <footer className="border-t py-8 text-center text-sm" style={{ borderColor: 'rgba(255,255,255,0.1)', color: '#9CA3AF' }}>
         <p>© 2026 Ahmad. All rights reserved.</p>
       </footer>
+      <Analytics />
     </div>
   )
 }

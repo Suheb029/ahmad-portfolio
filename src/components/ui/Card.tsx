@@ -12,11 +12,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <motion.div
         ref={ref}
-        whileHover={hoverable ? { y: -5 } : undefined}
-        transition={{ duration: 0.2 }}
+        whileHover={hoverable ? { y: -6 } : undefined}
+        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
         className={cn(
-          'glass-card rounded-2xl p-6 md:p-8',
-          hoverable && 'hover:shadow-2xl hover:border-primary/30 transition-all',
+          'glass-card rounded-2xl p-6 md:p-8 bg-white/90 border border-slate-200/80 shadow-sm',
+          hoverable && 'hover:shadow-xl hover:shadow-indigo-500/10 hover:border-primary/40 transition-all duration-300',
           className
         )}
         {...props}

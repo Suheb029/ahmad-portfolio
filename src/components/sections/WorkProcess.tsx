@@ -31,36 +31,47 @@ const processSteps = [
 
 export function WorkProcess() {
   return (
-    <section className="py-20 md:py-32 bg-surface/30">
+    <section className="py-20 md:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <SectionHeading title="Work Process" subtitle="How I bring your ideas to life from start to finish." />
+        <SectionHeading
+          title="Work Process"
+          subtitle="A structured, agile development process from initial discovery to deployment."
+        />
         
         <div className="relative mt-16 md:mt-24">
           {/* Connecting Line - Desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-[60px] z-0" />
+          <div className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/30 via-accent/40 to-primary/30 z-0" />
           
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.num}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col lg:items-center relative"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45, delay: index * 0.1 }}
+                className="flex flex-col lg:items-center relative group"
               >
                 {/* Connecting Line - Mobile/Tablet */}
                 {index !== processSteps.length - 1 && (
-                  <div className="lg:hidden absolute left-8 top-16 bottom-[-32px] w-0.5 bg-white/10 z-0" />
+                  <div className="lg:hidden absolute left-7 top-14 bottom-[-32px] w-0.5 bg-indigo-100 z-0" />
                 )}
                 
-                <div className="w-16 h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center text-xl font-bold text-primary shadow-[0_0_15px_rgba(79,70,229,0.3)] mb-6 z-10 shrink-0">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: [0, -4, 4, 0] }}
+                  transition={{ duration: 0.3 }}
+                  className="w-14 h-14 rounded-2xl bg-white border-2 border-primary flex items-center justify-center text-base font-extrabold text-primary shadow-md shadow-primary/20 mb-5 z-10 shrink-0 group-hover:bg-primary group-hover:text-white transition-colors"
+                >
                   {step.num}
-                </div>
+                </motion.div>
                 
-                <div className="lg:text-center pl-24 lg:pl-0 -mt-20 lg:mt-0 pt-2 lg:pt-0">
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-textSecondary text-sm leading-relaxed">{step.description}</p>
+                <div className="lg:text-center pl-20 lg:pl-0 -mt-14 lg:mt-0 pt-1 lg:pt-0">
+                  <h3 className="text-lg font-bold text-textPrimary mb-2 group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-textSecondary text-xs sm:text-sm leading-relaxed max-w-xs mx-auto">
+                    {step.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
